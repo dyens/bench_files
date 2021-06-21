@@ -51,3 +51,210 @@
      99%      9
     100%     11 (longest request)
    
+** FastAPI
+   5 workers:
+   poetry run uvicorn main:app --workers 5
+   ab -n 500 -c2  http://127.0.0.1:8080/
+   This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+   Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+   Licensed to The Apache Software Foundation, http://www.apache.org/
+   
+   Benchmarking 127.0.0.1 (be patient)
+   Completed 100 requests
+   Completed 200 requests
+   Completed 300 requests
+   Completed 400 requests
+   Completed 500 requests
+   Finished 500 requests
+   
+   
+   Server Software:        uvicorn
+   Server Hostname:        127.0.0.1
+   Server Port:            8000
+   
+   Document Path:          /
+   Document Length:        4000000 bytes
+   
+   Concurrency Level:      2
+   Time taken for tests:   19.876 seconds
+   Complete requests:      500
+   Failed requests:        0
+   Total transferred:      2000112500 bytes
+   HTML transferred:       2000000000 bytes
+   Requests per second:    25.16 [#/sec] (mean)
+   Time per request:       79.503 [ms] (mean)
+   Time per request:       39.751 [ms] (mean, across all concurrent requests)
+   Transfer rate:          98272.63 [Kbytes/sec] received
+   
+   Connection Times (ms)
+                 min  mean[+/-sd] median   max
+   Connect:        0    0   0.0      0       0
+   Processing:    57   79  14.5     72     127
+   Waiting:        0    1   0.7      1      14
+   Total:         57   79  14.5     73     127
+   
+   Percentage of the requests served within a certain time (ms)
+     50%     73
+     66%     82
+     75%     89
+     80%     94
+     90%    102
+     95%    107
+     98%    112
+     99%    120
+    100%    127 (longest request)
+
+** GO
+ab -n 500 -c2  http://127.0.0.1:8080/
+   This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+   Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+   Licensed to The Apache Software Foundation, http://www.apache.org/
+   
+   Benchmarking 127.0.0.1 (be patient)
+   Completed 100 requests
+   Completed 200 requests
+   Completed 300 requests
+   Completed 400 requests
+   Completed 500 requests
+   Finished 500 requests
+   
+   
+   Server Software:        
+   Server Hostname:        127.0.0.1
+   Server Port:            8080
+   
+   Document Path:          /
+   Document Length:        4000000 bytes
+   
+   Concurrency Level:      2
+   Time taken for tests:   0.326 seconds
+   Complete requests:      500
+   Failed requests:        0
+   Total transferred:      2000100000 bytes
+   HTML transferred:       2000000000 bytes
+   Requests per second:    1533.05 [#/sec] (mean)
+   Time per request:       1.305 [ms] (mean)
+   Time per request:       0.652 [ms] (mean, across all concurrent requests)
+   Transfer rate:          5988761.72 [Kbytes/sec] received
+   
+   Connection Times (ms)
+                 min  mean[+/-sd] median   max
+   Connect:        0    0   0.0      0       0
+   Processing:     1    1   0.1      1       2
+   Waiting:        0    0   0.0      0       0
+   Total:          1    1   0.1      1       2
+   
+   Percentage of the requests served within a certain time (ms)
+     50%      1
+     66%      1
+     75%      1
+     80%      1
+     90%      1
+     95%      2
+     98%      2
+     99%      2
+    100%      2 (longest request)
+    
+** Rust Actix
+   ab -n 500 -c2  http://127.0.0.1:8080/
+   This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+   Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+   Licensed to The Apache Software Foundation, http://www.apache.org/
+   
+   Benchmarking 127.0.0.1 (be patient)
+   Completed 100 requests
+   Completed 200 requests
+   Completed 300 requests
+   Completed 400 requests
+   Completed 500 requests
+   Finished 500 requests
+   
+   
+   Server Software:        
+   Server Hostname:        127.0.0.1
+   Server Port:            8080
+   
+   Document Path:          /
+   Document Length:        4000000 bytes
+   
+   Concurrency Level:      2
+   Time taken for tests:   0.618 seconds
+   Complete requests:      500
+   Failed requests:        0
+   Total transferred:      2000142000 bytes
+   HTML transferred:       2000000000 bytes
+   Requests per second:    809.21 [#/sec] (mean)
+   Time per request:       2.472 [ms] (mean)
+   Time per request:       1.236 [ms] (mean, across all concurrent requests)
+   Transfer rate:          3161209.08 [Kbytes/sec] received
+   
+   Connection Times (ms)
+                 min  mean[+/-sd] median   max
+   Connect:        0    0   0.0      0       0
+   Processing:     2    2   0.5      2      11
+   Waiting:        0    0   0.3      0       6
+   Total:          2    2   0.5      2      11
+   
+   Percentage of the requests served within a certain time (ms)
+     50%      2
+     66%      2
+     75%      3
+     80%      3
+     90%      3
+     95%      3
+     98%      3
+     99%      4
+    100%     11 (longest request)
+
+** Rust Rocket
+   workers = 5
+
+   ab -n 500 -c2  http://127.0.0.1:8000/
+   This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+   Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+   Licensed to The Apache Software Foundation, http://www.apache.org/
+   
+   Benchmarking 127.0.0.1 (be patient)
+   Completed 100 requests
+   Completed 200 requests
+   Completed 300 requests
+   Completed 400 requests
+   Completed 500 requests
+   Finished 500 requests
+   
+   
+   Server Software:        Rocket
+   Server Hostname:        127.0.0.1
+   Server Port:            8000
+   
+   Document Path:          /
+   Document Length:        4000000 bytes
+   
+   Concurrency Level:      2
+   Time taken for tests:   2.348 seconds
+   Complete requests:      500
+   Failed requests:        0
+   Total transferred:      2000099500 bytes
+   HTML transferred:       2000000000 bytes
+   Requests per second:    212.90 [#/sec] (mean)
+   Time per request:       9.394 [ms] (mean)
+   Time per request:       4.697 [ms] (mean, across all concurrent requests)
+   Transfer rate:          831693.84 [Kbytes/sec] received
+   
+   Connection Times (ms)
+                 min  mean[+/-sd] median   max
+   Connect:        0    0   0.0      0       0
+   Processing:     8    9   0.8      9      21
+   Waiting:        0    0   0.0      0       1
+   Total:          8    9   0.8      9      21
+   
+   Percentage of the requests served within a certain time (ms)
+     50%      9
+     66%      9
+     75%      9
+     80%      9
+     90%     10
+     95%     10
+     98%     12
+     99%     14
+    100%     21 (longest request)
